@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flow Lines</title>
+  <style>
+    :root {
+      --bg: #0b0d18;
+      --panel: #16233c;
+      --card: #1f2235;
+      --text: #f7f8fb;
+      --muted: #b5bbcd;
+      --accent: #46c8c8;
+      --line1: #55d3d4;
+      --line2: #8c88ff;
+      --line3: #f3d66a;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(42, 74, 117, 0.55), transparent 42%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .hero {
+      padding: 28px 24px 20px;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(30, 53, 88, 0.95), rgba(19, 31, 54, 0.92));
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 10px 0 8px;
+      font-size: clamp(40px, 8vw, 72px);
+      line-height: 1;
+    }
+
+    .tagline {
+      margin: 0 auto;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.7vw, 26px);
+    }
+
+    .pattern {
+      width: min(320px, 78vw);
+      margin: 28px auto 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .cell {
+      aspect-ratio: 1;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cell.cyan { background: rgba(85, 211, 212, 0.55); }
+    .cell.purple { background: rgba(140, 136, 255, 0.55); }
+    .cell.yellow { background: rgba(243, 214, 106, 0.55); }
+    .dot::after {
+      content: "";
+      position: absolute;
+      inset: 26%;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.9);
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      min-width: 220px;
+      padding: 16px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      transition: transform 0.18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--accent); color: #0d131c; }
+    .btn.secondary { background: #2a2d41; color: var(--text); }
+
+    .section {
+      margin-top: 28px;
+      padding: 28px 24px;
+      border-radius: 24px;
+      background: rgba(27, 31, 45, 0.88);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .shots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .shots img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.28);
+    }
+
+    .foot {
+      margin-top: 20px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <p class="tagline">Relaxing color puzzle</p>
+      <h1>Flow Lines</h1>
+      <p class="tagline">Connect every color, fill the board, and solve all 50 offline puzzles without crossing lines.</p>
+
+      <div class="pattern" aria-hidden="true">
+        <div class="cell purple dot"></div>
+        <div class="cell yellow dot"></div>
+        <div class="cell yellow dot"></div>
+        <div class="cell purple"></div>
+        <div class="cell purple dot"></div>
+        <div class="cell cyan dot"></div>
+        <div class="cell cyan dot"></div>
+        <div class="cell cyan"></div>
+        <div class="cell cyan"></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="#features">Explore Features</a>
+        <a class="btn secondary" href="privacy.html">Privacy Policy</a>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2>Why Players Enjoy Flow Lines</h2>
+      <div class="grid">
+        <div class="card">50 progressively harder levels generated for a smooth difficulty curve.</div>
+        <div class="card">Pure offline single-player gameplay with local progress saving.</div>
+        <div class="card">Level select, star results, music control, and clean interface design.</div>
+        <div class="card">Built for iPhone and iPad on iOS 13 and later.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Gameplay</h2>
+      <p>Match dots of the same color, draw continuous paths, and cover every square on the board. Each level starts simple, but later puzzles demand better planning, tighter routing, and more efficient solutions.</p>
+    </section>
+
+    <section class="section">
+      <h2>Preview</h2>
+      <div class="shots">
+        <img src="res/IMG_0100.PNG" alt="Flow Lines home screen">
+        <img src="res/IMG_0102.PNG" alt="Flow Lines level selection">
+        <img src="res/IMG_0104.PNG" alt="Flow Lines gameplay board">
+        <img src="res/IMG_0105.PNG" alt="Flow Lines puzzle progress">
+        <img src="res/IMG_0106.PNG" alt="Flow Lines advanced level">
+      </div>
+    </section>
+
+    <p class="foot">Flow Lines is an offline logic puzzle game focused on calm visuals, satisfying path building, and straightforward play.</p>
+  </div>
+</body>
+</html>
